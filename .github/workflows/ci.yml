@@ -1,0 +1,21 @@
+name: "Terraform Modules Lint & Validate"
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Validate Example
+        run: |
+          cd examples/complete
+          terraform fmt -check
+          terraform init -backend=false
+          terraform validate
