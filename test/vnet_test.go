@@ -19,3 +19,4 @@ func TestTerraformAzureVnet(t *testing.T) {
 	vnetID := terraform.Output(t, terraformOptions, "vnet_id")
 	assert.NotEmpty(t, vnetID)
 }
+

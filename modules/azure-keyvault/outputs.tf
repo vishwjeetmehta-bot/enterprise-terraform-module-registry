@@ -5,3 +5,4 @@ output "key_vault_id" {
 output "vault_uri" {
   value = azurerm_key_vault.kv.vault_uri
 }
+
